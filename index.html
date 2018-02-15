@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ReactionTime</title>
+</head>
+
+<style>
+    #box{
+        width: 200px;
+        height: 200px;
+        background:blue;
+        float: left;
+    }
+    body{
+        margin: 0px;
+    }
+    #reactionTime{
+        font-size: 2em;
+        margin: auto;
+        width: 50%;
+
+    }
+
+
+
+</style>
+
+
+<body>
+
+
+ <div id="reactionTime">
+     Your Reaction Time Was: <span id="reactSec">0</span>
+ </div>
+
+
+ <button id="box">
+ </button>
+
+
+
+
+</body>
+
+<script>
+
+
+    var clickedTime = Date.now();
+    var responseTime = 0
+
+
+    document.getElementById("box").onclick = function responseT() {
+        var afterClick = Date.now()
+        var x = 150*Math.random()
+        var y = 400*Math.random()
+
+        if(Math.random() < 0.5 ){
+            document.getElementById("box").style.borderRadius = "100px"
+
+        }else{
+            document.getElementById("box").style.borderRadius = "0px"
+        }
+
+        document.getElementById("box").style.background = '#'+Math.floor(Math.random()*16777215).toString(16);
+
+        document.getElementById("box").style.margin = x+"px "+y+"px "+x+"px "+y+"px "
+
+
+
+        responseTime = (afterClick-clickedTime)/1000
+        clickedTime=Date.now();
+        console.log(responseTime)
+        document.getElementById("reactSec").innerText = responseTime
+        responseTime = 0
+
+    }
+
+
+
+</script>
+
+</html>
